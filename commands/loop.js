@@ -20,6 +20,6 @@ module.exports = {
                 }
             });
         };
-    return sendError("There is nothing playing in this server.", message.channel);
+    return sendError("There is nothing playing in this server.No hay nada reproducido en este servidor.", message.channel);
   },
 };

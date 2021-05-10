@@ -14,12 +14,12 @@ module.exports = {
 
     run: async function (client, message, args) {
         const channel = message.member.voice.channel;
-        if (!channel) return sendError("I'm sorry but you need to be in a voice channel to play music!", message.channel);
+        if (!channel) return sendError("I'm sorry but you need to be in a voice channel to play music!//Lo siento, pero necesitas estar en un canal de voz para reproducir música.", message.channel);
         const url = args[0] ? args[0].replace(/<(.+)>/g, "$1") : "";
         var searchString = args.join(" ");
         const permissions = channel.permissionsFor(message.client.user);
-        if (!permissions.has("CONNECT")) return sendError("I cannot connect to your voice channel, make sure I have the proper permissions!", message.channel);
-        if (!permissions.has("SPEAK")) return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!", message.channel);
+        if (!permissions.has("CONNECT")) return sendError("I cannot connect to your voice channel, make sure I have the proper permissions!//No puedo conectarme a tu canal de voz, ¡asegúrate de tener los permisos adecuados!", message.channel);
+        if (!permissions.has("SPEAK")) return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!//No puedo hablar en este canal de voz, ¡asegúrese de tener los permisos adecuados!", message.channel);
 
         if (!searchString || !url) return sendError(`Usage: ${message.client.config.prefix}playlist <YouTube Playlist URL | Playlist Name>`, message.channel);
         if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {

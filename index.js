@@ -2,8 +2,8 @@ require("dotenv").config();//Loading .env
 const fs = require("fs");
 const { Collection, Client } = require("discord.js");
 
-const client = new Client();//Making a discord bot client
-client.commands = new Collection();//Making client.commands as a Discord.js Collection
+const client = new Client();//creando cliente para el bot
+client.commands = new Collection();//creando cliente de comandos en Discord.js Collection
 client.queue = new Map()
 
 client.config = {

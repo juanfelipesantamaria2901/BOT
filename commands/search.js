@@ -15,19 +15,19 @@ module.exports = {
 
     run: async function (client, message, args) {
         let channel = message.member.voice.channel;
-        if (!channel) return sendError("I'm sorry but you need to be in a voice channel to play music!", message.channel);
+        if (!channel) return sendError("I'm sorry but you need to be in a voice channel to play music!//Lo siento pero necesitas estar en un chat de voz primero", message.channel);
 
         const permissions = channel.permissionsFor(message.client.user);
-        if (!permissions.has("CONNECT")) return sendError("I cannot connect to your voice channel, make sure I have the proper permissions!", message.channel);
-        if (!permissions.has("SPEAK")) return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!", message.channel);
+        if (!permissions.has("CONNECT")) return sendError("I cannot connect to your voice channel, make sure I have the proper permissions!No puedo conectarme a su canal de voz, asegúrese de tener los permisos adecuados", message.channel);
+        if (!permissions.has("SPEAK")) return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!No puedo hablar en este canal de voz, asegúrese de tener los permisos adecuados", message.channel);
 
         var searchString = args.join(" ");
-        if (!searchString) return sendError("You didn't poivide want i want to search", message.channel);
+        if (!searchString) return sendError("I don't understand what you want to look for//No encuentro lo que quiere buscar", message.channel);
 
         var serverQueue = message.client.queue.get(message.guild.id);
         try {
             var searched = await YouTube.search(searchString, { limit: 10 });
-            if (searched[0] == undefined) return sendError("Looks like i was unable to find the song on YouTube", message.channel);
+            if (searched[0] == undefined) return sendError("Looks like i was unable to find the song on YouTube//Parece que no pude encontrar la canción en YouTube.", message.channel);
             let index = 0;
             let embedPlay = new MessageEmbed()
                 .setColor("BLUE")

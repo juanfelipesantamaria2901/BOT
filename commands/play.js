@@ -14,14 +14,14 @@ module.exports = {
 
     run: async function (client, message, args) {
         let channel = message.member.voice.channel;
-        if (!channel) return sendError("I'm sorry but you need to be in a voice channel to play music!", message.channel);
+        if (!channel) return sendError("I'm sorry but you need to be in a voice channel to play music!//Lo siento, pero debes estar en un canal de voz para reproducir música.", message.channel);
 
         const permissions = channel.permissionsFor(message.client.user);
-        if (!permissions.has("CONNECT")) return sendError("I cannot connect to your voice channel, make sure I have the proper permissions!", message.channel);
-        if (!permissions.has("SPEAK")) return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!", message.channel);
+        if (!permissions.has("CONNECT")) return sendError("I cannot connect to your voice channel, make sure I have the proper permissions!//No puedo conectarme a tu canal de voz, ¡asegúrate de tener los permisos adecuados!", message.channel);
+        if (!permissions.has("SPEAK")) return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!//No puedo hablar en este canal de voz, ¡asegúrese de tener los permisos adecuados!", message.channel);
 
         var searchString = args.join(" ");
-        if (!searchString) return sendError("You didn't poivide want i want to play", message.channel);
+        if (!searchString) return sendError("I don't understand what you want to look for//No encuentro lo que quiere buscar", message.channel);
         const url = args[0] ? args[0].replace(/<(.+)>/g, "$1") : "";
         var serverQueue = message.client.queue.get(message.guild.id);
 
@@ -30,7 +30,7 @@ module.exports = {
         if (url.match(/^(https?:\/\/)?(music\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi)) {
             try {
                 songInfo = await ytdl.getInfo(url);
-                if (!songInfo) return sendError("Looks like i was unable to find the song on YouTube", message.channel);
+                if (!songInfo) return sendError("Looks like i was unable to find the song on YouTube//Parece que no pude encontrar la canción en YouTube.", message.channel);
                 song = {
                     id: songInfo.videoDetails.videoId,
                     title: songInfo.videoDetails.title,

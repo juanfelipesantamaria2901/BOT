@@ -39,7 +39,7 @@ module.exports = {
       }catch (error) {
         queue.voiceChannel.leave()
         message.client.queue.delete(message.guild.id);
-       return sendError(`:notes: The player has stopped and the queue has been cleared.: ${error}`, message.channel);
+       return sendError(`:notes: The player has stopped and the queue has been cleared//El reproductor se ha detenido y la cola se ha despejado.: ${error}`, message.channel);
       }
     
     queue.textChannel.send({

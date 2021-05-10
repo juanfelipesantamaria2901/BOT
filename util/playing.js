@@ -9,10 +9,10 @@ module.exports = {
         const queue = message.client.queue.get(message.guild.id);
         if (!song) {
             sendError(
-                "Leaving the voice channel because I think there are no songs in the queue. If you like the bot stay 24/7 in voice channel go to `util/playing.js` and remove the line number 15\n\nThank you for using my code! [GitHub](https://github.com/SudhanPlayz/Discord-MusicBot)",
+                "Saliendo del canal de voz porque creo que no hay canciones en la cola. Si le gustaria que el bot permanezca 24 horas al día, 7 días a la semana en el canal de voz, por favor vaya a 'util / playing.js' y elimine la línea número 15\n\nGracias por usar mi codigo! [GitHub](https://github.com/juanfelipesantamaria2901/BOT)",
                 message.channel
             );
-            message.guild.me.voice.channel.leave(); //If you want your bot stay in vc 24/7 remove this line :D
+            message.guild.me.voice.channel.leave(); //si quieres que permanezca 24/7 en el chat elimina esta linea;
             message.client.queue.delete(message.guild.id);
             return;
         }
